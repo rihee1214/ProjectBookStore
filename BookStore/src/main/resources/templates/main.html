@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link th:include="/fragments/common::header('bookstore')">
+<style>
+	.btn_search{
+		display:inline-block;
+		background-image: url("/image/btn_search3.gif");
+	}
+</style>
+</head>
+<body>
+<div class="container d-flex justify-content-center">
+	<form>
+		<input type="text">
+		<input type="button" class="btn_search">
+	</form>
+</div>
+<div th:replace="/fragments/common::navbar"></div>
+
+<div th:replace="/fragments/common::footer"></div>
+</body>
+</html>
