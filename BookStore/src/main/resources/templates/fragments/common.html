@@ -7,39 +7,89 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<style>
+	#topfrag{
+		height: 10rem;
+	}
+	
+	#topfrag>form{
+		width: 40%;
+	}
+	
+	#topfrag i{
+		text-decoration: none;
+		color:black;
+		font-size:2em;
+		padding: 0.1em 0.1em;
+	}
+	
+	#topfrag button{
+		font-size:0.7rem;
+		border-radius: 10px;
+	}
+	
+	.navtag{
+		color: white !important; 
+		text-decoration: none;
+		font-size: 1em;
+		font-weight: bold;
+	}
+	
+	#navsearch{
+		margin-left:18%;
+		visibility: hidden;
+	}
+	
+	#navbar{
+		font-size: 1.1rem;
+	}
+</style>
 </head>
 <body>
-<nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-light bg-primary sticky-top">
+<div th:fragment="top" id="topfrag" class="d-flex justify-content-center align-items-center">
+	<form class="input-group input-lg">
+		<a th:href="@{/}"><i class="fas fa-book mr-4">BookStore</i></a>
+		<input type="text" class="form-control" placeholder="Search">
+		<button class="ml-1">
+			<i class="fas fa-search"></i>
+		</button>
+	</form>
+</div>
+<nav th:fragment="navbar" id="navbar" class="navbar navbar-expand-lg navbar-light bg-primary sticky-top">
   <div class="container-fluid">
-    <a class="navbar-brand" th:href="@{/}">Home</a>
+    <a class="navbar-brand navtag mr-4" th:href="@{/}"><i class="fas fa-home">Home</i></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" th:href="@{/}">Home</a>
+        <li class="nav-item mr-3">
+          <a class="nav-link active navtag" aria-current="page" th:href="@{/}">일반도서</a>
+        </li>
+        <li class="nav-item mr-3">
+          <a class="nav-link active navtag" href="#">E-Book</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="#">Link</a>
+          <a class="nav-link active navtag" href="#">중고책</a>
         </li>
       </ul>
-      <form class="d-flex ml-auto w-25">
-        <input class="form-control w-100" type="search" placeholder="Search" aria-label="Search">
+      <form id="navsearch" class="d-flex w-25">
+      	<input id="mainsearch" class="form-control w-100" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-success" type="submit">Search</button>
       </form>
       <ul class="navbar-nav ml-auto d-flex justify-content-space-between">
         <li class="nav-item">
-          <a class="nav-link active" th:href="@{./member/join}" style="color:white; text-decoration: none;">회원가입</a>
+          <a class="nav-link active navtag mr-3" th:href="@{./member/join}"><i class="fas fa-user-plus">회원가입</i></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" th:href="@{./member/login}" style="color:white; text-decoration: none;">로그인</a>
+          <a class="nav-link active navtag mr-3" th:href="@{./member/login}"><i class="fas fa-sign-in-alt">로그인</i></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="#" style="color:white; text-decoration: none;">장바구니</a>
+          <a class="nav-link active navtag mr-3" href="#"><i class="fas fa-shopping-cart">장바구니</i></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="#" style="color:white; text-decoration: none;">고객센터</a>
+          <a class="nav-link active navtag" href="#"><i class="far fa-question-circle">고객센터</i></a>
         </li>
       </ul>
     </div>
@@ -50,6 +100,17 @@
   <div class="container">
     <span class="text-muted">Place sticky footer content here.</span>
   </div>
+  <script>
+	const num = 200;
+	
+	$(window).bind('scroll', function(){
+		 if ($(window).scrollTop() > num) {
+		 	$('#navsearch').css("visibility", "visible");
+		 } else {
+		 	$('#navsearch').css("visibility", "hidden");
+		 }
+	});
+</script>
 </footer>
 </body>
 </html>

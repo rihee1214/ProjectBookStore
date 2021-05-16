@@ -3,21 +3,54 @@
 <head>
 <link th:include="/fragments/common::header('bookstore')">
 <style>
-	.btn_search{
-		display:inline-block;
-		background-image: url("/image/btn_search3.gif");
+	.carousel-item{
+		text-align: center;
+	}
+	
+	.carousel-controller span{
+		background-image: none;
+	}
+	
+	.carousel-controller i{
+		font-size:3rem;
 	}
 </style>
 </head>
 <body>
-<div class="container d-flex justify-content-center">
-	<form>
-		<input type="text">
-		<input type="button" class="btn_search">
-	</form>
-</div>
+<div th:replace="/fragments/common::top"></div>
 <div th:replace="/fragments/common::navbar"></div>
 
+<div id="demo" class="carousel slide" data-ride="carousel">
+
+  <!-- Indicators -->
+  <ul class="carousel-indicators">
+    <li data-target="#demo" data-slide-to="0" class="active"></li>
+    <li data-target="#demo" data-slide-to="1"></li>
+    <li data-target="#demo" data-slide-to="2"></li>
+  </ul>
+
+  <!-- The slideshow -->
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="/image/event.jpg" alt="Los Angeles">
+    </div>
+    <div class="carousel-item">
+      <img src="/image/event.jpg" alt="Chicago">
+    </div>
+    <div class="carousel-item">
+      <img src="/image/event.jpg" alt="New York">
+    </div>
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="carousel-controller carousel-control-prev" href="#demo" data-slide="prev">
+  	<span class="carousel-control-prev-icon"><i class="fas fa-chevron-left text-secondary"></i></span>
+  </a>
+  <a class="carousel-controller carousel-control-next" href="#demo" data-slide="next">
+  	<span class="carousel-control-next-icon"><i class="fas fa-chevron-right text-secondary"></i></span>
+  </a>
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <div th:replace="/fragments/common::footer"></div>
 </body>
 </html>
