@@ -11,10 +11,16 @@
 <style>
 	#topfrag{
 		height: 10rem;
+		background-image:url(/image/commons/Bookshelf.jpg);
+		background-size: cover;
 	}
 	
 	#topfrag>form{
 		width: 40%;
+	}
+	
+	#topfrag a{
+		text-shadow: 3px 3px 5px white, -3px 3px 5px white, 3px -3px 5px white, -3px -3px 5px white;
 	}
 	
 	#topfrag i{
@@ -49,7 +55,7 @@
 <body>
 <div th:fragment="top" id="topfrag" class="d-flex justify-content-center align-items-center">
 	<form class="input-group input-lg">
-		<a th:href="@{/}"><i class="fas fa-book mr-4">BookStore</i></a>
+		<a th:href="@{/}"><i class="fas fa-book mr-4">&nbsp;BookStore</i></a>
 		<input type="text" class="form-control" placeholder="Search">
 		<button class="ml-1">
 			<i class="fas fa-search"></i>
